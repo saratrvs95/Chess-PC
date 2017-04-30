@@ -6,10 +6,10 @@ public class BoardManager : MonoBehaviour
 {
     public static BoardManager Instance { set; get;}
     public bool[,] allowedMoves { set; get;}
-    
+
     public Chessman[,] Chessmans { set; get;}
     public Chessman selectedChessman;
-    AIPossibleMoves a;
+    public AIPossibleMoves a { set; get; }
 
     private const float TILE_SIZE = 1.0f;
     private const float TILE_OFFSET = 0.5f;
@@ -34,11 +34,12 @@ public class BoardManager : MonoBehaviour
 
     private void Update()
     {
+        a.gettemp();
         UpdateSelection();
         DrawChessboard();
 
-        //if (isWhiteTurn)
-        //{
+        if (isWhiteTurn)
+        {
             if (Input.GetMouseButtonDown(0))
             {
                 if (selectionX >= 0 && selectionY >= 0)
@@ -55,12 +56,12 @@ public class BoardManager : MonoBehaviour
                     }
                 }
             }
-        //}
-        //else
-        //{
-        //     a.moves();
-
-        //}
+        }
+        else
+        {
+            a.moves();
+            Debug.Log("Function Call Successful");
+        }
 
     }
         
