@@ -13,7 +13,8 @@ struct unit
 
 public class AIPossibleMoves : MonoBehaviour
 {
-    public static AIPossibleMoves Instance { set; get;}
+    int temp = 1;
+    public static AIPossibleMoves Instance { set; get; }
     public int X, m;
     unit[] piece = new unit[16];
     Chessman c2;
@@ -22,6 +23,12 @@ public class AIPossibleMoves : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        Debug.Log("Instance Created");
+    }
+
+    public void gettemp()
+    {
+        Debug.Log(temp);
     }
 
     public void moves()
